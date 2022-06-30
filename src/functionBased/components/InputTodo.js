@@ -1,43 +1,45 @@
 import React, { useState } from "react";
-import { FaPlusCircle} from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 
-const InputTodo = props => {
-    const [inputText, setInputText] = useState({
-        title: ""
-    })
+const InputTodo = (props) => {
+  const [inputText, setInputText] = useState({
+    title: "",
+  });
 
-    const onChange = e => {
-        setInputText({
-            ...inputText,
-            [e.target.name]: e.target.value
-        })
+  const onChange = (e) => {
+    setInputText({
+      ...inputText,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputText.title.trim()) {
+      props.addTodoProps(inputText.title);
+      setInputText({
+        title: "",
+      });
+    } else {
+      alert("Please enter a task");
     }
+  };
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        if (inputText.title.trim()) {
-            props.addTodoProps(inputText.title)
-            setInputText({
-                title: ""
-            })
-        } else {
-            alert("Please enter a task")
-        }
-    }
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        className="input-text"
+        type="text"
+        placeholder="Add Todo..."
+        value={inputText.title}
+        name="title"
+        onChange={onChange}
+      />
+      <button className="input-submit">
+        <FaPlusCircle />
+      </button>
+    </form>
+  );
+};
 
-    return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <input
-                className="input-text"
-                type="text"
-                placeholder="Add Todo..."
-                value={inputText.title}
-                name="title"
-                onChange={onChange}
-            />
-            <button className="input-submit"><FaPlusCircle /></button>
-        </form>
-    )
-}
-
-export default InputTodo
+export default InputTodo;
