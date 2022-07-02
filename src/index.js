@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import TodoContainer from "./functionBased/components/TodoContainer"; // Component file
 import "./functionBased/App.css"; // Style sheet
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Router file
+import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Router file
 import About from "./functionBased/pages/About";
 import NotMatch from "./functionBased/pages/NotMatch";
 

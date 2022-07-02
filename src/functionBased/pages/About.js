@@ -1,19 +1,20 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, useMatch } from "react-router-dom";
 import SinglePage from "./SinglePage";
 
 const About = () => {
-  return (
-    <div>
-      <ul>
+    const match = useMatch();
+    return (
+    <div className="about__content">
+      <ul className="about__list">
         <li>
-          <Link to="about-app">About App</Link>
+          <Link to={`${match.url}/about-app`}>About App</Link>
         </li>
         <li>
-          <Link to="about-author">About Author</Link>
+          <Link to={`${match.url}/about-author`}>About Author</Link>
         </li>
       </ul>
-      <Route path=":slug">
+      <Route path={`${match.path}/:slug`}>
         <SinglePage />
       </Route>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./TodoItem.module.css";
 import { FaTrash } from "react-icons/fa";
 
@@ -31,12 +31,6 @@ const TodoItem = (props) => {
   } else {
     editMode.display = "none";
   }
-
-  useEffect(() => {
-    return () => {
-      console.log("cleaning");
-    };
-  }, []);
 
   return (
     <li className={styles.item}>
