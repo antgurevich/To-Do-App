@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const SinglePage = () => {
   const aboutData = [
@@ -20,9 +20,11 @@ const SinglePage = () => {
   const { slug } = useParams();
   const aboutContent = aboutData.find((item) => item.slug === slug);
   const { title, description } = aboutContent;
+  const navigate = useNavigate();
 
   return (
     <div className="main__content">
+      <button onClick={() => navigate(-2)}>Return to Home</button>
       <h1>{title}</h1>
       <p>{description}</p>
     </div>
