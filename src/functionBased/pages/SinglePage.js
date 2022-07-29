@@ -1,5 +1,6 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+// import { browserHistory } from "react-router";
 
 const SinglePage = () => {
   const aboutData = [
@@ -20,11 +21,11 @@ const SinglePage = () => {
   const { slug } = useParams();
   const aboutContent = aboutData.find((item) => item.slug === slug);
   const { title, description } = aboutContent;
-  const navigate = useNavigate();
+  // const toHome = browserHistory.push('/');
 
   return (
     <div className="main__content">
-      <button onClick={() => navigate(-2)}>Return to Home</button>
+      {/* <button onClick={toHome}>Return to Home</button> */}
       <h1>{title}</h1>
       <p>{description}</p>
     </div>
